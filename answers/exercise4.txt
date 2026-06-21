@@ -1,0 +1,6 @@
+docker start -i blissful_newton
+# apt-get update
+# apt-get -y install nano
+curl -sL https://deb.nodesource.com/setup_24.x | bash
+apt install -y nodejs
+node /usr/src/app/index.js

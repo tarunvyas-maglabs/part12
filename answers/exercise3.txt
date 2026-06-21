@@ -1,0 +1,4 @@
+docker start -i blissful_newton
+# apt-get update
+# apt-get -y install nano
+nano /usr/src/app/index.js
