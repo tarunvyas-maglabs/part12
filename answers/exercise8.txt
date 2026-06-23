@@ -1,0 +1,9 @@
+docker compose -f docker-compose.dev.yml up -d
+
+docker exec -it to-do-backend-mongo-1 mongosh -u root -p example
+
+show dbs
+
+db.todos.find({})
+
+db.todos.insertOne({ text: "Inserting a todo via mongodb cli", done: true })

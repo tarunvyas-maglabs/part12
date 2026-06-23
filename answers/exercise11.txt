@@ -1,0 +1,7 @@
+docker compose -f docker-compose.dev.yml up -d 
+docker exec -it todo-backend-redis-1 redis-cli
+PING
+KEYS "added_todos"
+GET "added_todos"
+SET "added_todos" 9001
+DEL "added_todos"
