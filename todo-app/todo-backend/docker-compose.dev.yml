@@ -15,6 +15,25 @@ services:
     image: redis
     ports:
       - 6379:6379
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes: 
+      - ./redis_data:/data
+  
+  app:
+    image: todo-backend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    environment: 
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
+    
+  debug-helper:
+    image: busybox
 
 volumes:
   mongo_data:
