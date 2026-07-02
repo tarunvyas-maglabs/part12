@@ -17,8 +17,6 @@ services:
   
   backend:
     image: todo-backend
-    volumes:
-      - ./todo-backend:/usr/src/app
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
@@ -29,8 +27,6 @@ services:
     image: todo-front
     volumes:
       - ./todo-frontend:/usr/src/app
-    environment:
-      - VITE_BACKEND_URL=http:localhost:8080/api
 
   nginx:
     image: nginx:1.29
