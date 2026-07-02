@@ -19,7 +19,7 @@ services:
     volumes: 
       - ./redis_data:/data
   
-  app:
+  backend:
     image: todo-backend
     build: .
     ports:
@@ -27,6 +27,10 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
+    depends_on:
+      - mongo
+      - redis
+
 
 volumes:
   mongo_data:
