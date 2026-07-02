@@ -8,6 +8,8 @@ RUN npm ci
 
 RUN npm run test
 
+ENV VITE_BACKEND_URL=/api
+
 RUN npm run build
 
 FROM nginx:1.29-alpine

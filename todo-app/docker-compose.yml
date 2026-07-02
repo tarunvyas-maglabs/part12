@@ -30,7 +30,7 @@ services:
     volumes:
       - ./todo-frontend:/usr/src/app
     environment:
-      - VITE_BACKEND_URL=http://localhost:8080/
+      - VITE_BACKEND_URL=http:localhost:8080/api
 
   nginx:
     image: nginx:1.29
